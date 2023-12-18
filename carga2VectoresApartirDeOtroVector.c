@@ -3,7 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define tam 10
+#include <time.h>
+
+#define tam 100
 
 
 void cargarVector(int v[],int);
@@ -11,9 +13,11 @@ void vectorPar(int v[],int);
 void vectorImpar(int v[],int);
 
 int main()
-{
+{   
     int vector[tam];
     int largo = tam;
+    srand(time(NULL));
+
     cargarVector(vector,largo);
     vectorPar(vector,largo);
     vectorImpar(vector,largo);
@@ -28,8 +32,7 @@ void cargarVector(int v[],int largo){
 
     for(i=0;i<largo;i++){
         printf("[%d]. ",i+1);
-        scanf("%d",&v[i]);
-        fflush(stdin);
+       v[i] = rand()%(1000-1+1)+1;
     }
     for(i=0;i<largo;i++){
         printf("%d. %d\n",i+1,v[i]);
